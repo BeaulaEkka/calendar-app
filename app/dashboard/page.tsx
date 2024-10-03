@@ -5,9 +5,5 @@ export default async function Dashboard() {
   const session = await requireUser();
   console.log("session", session);
 
-  return (
-    <div>
-      <h1>Hello from the dashboard page</h1>
-    </div>
-  );
+  return <div>this is dashboard page</div>;
 }
