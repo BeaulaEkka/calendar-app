@@ -8,8 +8,19 @@ import {
 import Image from "next/image";
 import React from "react";
 import logo from "@/public/images/nextCalendarAppLogo.png";
-import { signIn } from "next-auth/react";
+import { signIn } from "@/auth";
+import GoogleAuthButton from "./SubmitButtons";
+
 export default function AuthModal() {
+  const handleGoogleSignIn = async () => {
+    "use server";
+    await signIn("google");
+  };
+
+  const handleGithubSignIn = async () => {
+    "use server";
+    await signIn("github");
+  };
   return (
     <Dialog>
       <DialogTrigger asChild>
@@ -25,17 +36,12 @@ export default function AuthModal() {
           </div>
         </DialogHeader>
         <div className="flex flex-col gap-2">
-          <form
-            action={async () => {
-              "use Server";
-              await signIn("google");
-            }}
-            className="w-full"
-          >
-            <Button>Sign In with Google</Button>
+          <form action={handleGoogleSignIn}>
+            <GoogleAuthButton />
           </form>
-
+          {/* <form action={handleGithubSignIn}> */}{" "}
           <Button>Sign In with Github</Button>
+          {/* </form> */}
         </div>
       </DialogContent>
     </Dialog>
