@@ -8,8 +8,8 @@ import {
 import Image from "next/image";
 import React from "react";
 import logo from "@/public/images/nextCalendarAppLogo.png";
+import { GoogleAuthButton, GithubAuthButton } from "./SubmitButtons";
 import { signIn } from "@/auth";
-import GoogleAuthButton from "./SubmitButtons";
 
 export default function AuthModal() {
   const handleGoogleSignIn = async () => {
@@ -39,9 +39,10 @@ export default function AuthModal() {
           <form action={handleGoogleSignIn}>
             <GoogleAuthButton />
           </form>
-          {/* <form action={handleGithubSignIn}> */}{" "}
-          <Button>Sign In with Github</Button>
-          {/* </form> */}
+          <form action={handleGithubSignIn}>
+            {" "}
+            <GithubAuthButton />
+          </form>
         </div>
       </DialogContent>
     </Dialog>

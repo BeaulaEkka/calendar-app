@@ -3,7 +3,12 @@ import Link from "next/link";
 import React from "react";
 import Logo from "@/public/images/nextCalendarAppLogo.png";
 import AuthModal from "./AuthModal";
-export default function Navbar() {
+import SignoutButton from "@/app/components/SignoutButton";
+import { auth } from "@/auth";
+import UserAvatar from "./UserAvatar";
+
+export default async function Navbar() {
+  const session = await auth();
   return (
     <div className="w-full h-20  flex bg-gray-800 items-center justify-between px-6 shadow-md">
       <div className="w-[80%] mx-auto flex justify-between items-center">
@@ -30,7 +35,14 @@ export default function Navbar() {
           </li>
         </ul>
         <div>
-          <AuthModal />
+          {!session ? (
+            <AuthModal />
+          ) : (
+            <div className="flex gap-4 items-center justify-center">
+              <UserAvatar />
+              <SignoutButton />
+            </div>
+          )}
         </div>
       </div>
     </div>
