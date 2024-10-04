@@ -1,21 +1,46 @@
+import { HomeIcon, LucideProps, Settings, User2 } from "lucide-react";
+import Link from "next/link";
 import React from "react";
 
 interface iAppProps {
   id: number;
   name: string;
   href: string;
-  icon: any;
+  icon: React.ForwardRefExoticComponent<
+    Omit<LucideProps, "ref"> & React.RefAttributes<SVGSVGElement>
+  >;
 }
 
 export const dashboardLinks: iAppProps[] = [
   {
     id: 1,
-    name: "Dashboard",
+    name: "Event Types",
     href: "/dashboard",
-    icon: <i className="fa fa-dashboard" />,
+    icon: HomeIcon,
+  },
+  {
+    id: 2,
+    name: "Meetings",
+    href: "/dashboard/availability",
+    icon: User2,
+  },
+  {
+    id: 3,
+    name: "Settings",
+    href: "/dashboard/settings",
+    icon: Settings,
   },
 ];
 
 export default function DashboardLinks() {
-  return <div></div>;
+  return (
+    <>
+      {dashboardLinks.map((link) => (
+        <Link key={link.id} href={link.href}>
+          {link.name}
+          <link.icon className="size-4" />
+        </Link>
+      ))}
+    </>
+  );
 }
