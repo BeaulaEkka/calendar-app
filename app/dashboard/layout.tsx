@@ -3,7 +3,12 @@ import React, { ReactNode } from "react";
 import logo from "@/public/images/nextCalendarAppLogo.png";
 import Image from "next/image";
 import DashboardLinks from "../components/DashboardLinks";
-import { Sheet, SheetTrigger } from "@/components/ui/sheet";
+import {
+  Sheet,
+  SheetClose,
+  SheetContent,
+  SheetTrigger,
+} from "@/components/ui/sheet";
 import { Button } from "@/components/ui/button";
 import { Menu } from "lucide-react";
 export default function DashboardLayout({ children }: { children: ReactNode }) {
@@ -38,6 +43,12 @@ export default function DashboardLayout({ children }: { children: ReactNode }) {
                   <Menu className="size-5" />
                 </Button>
               </SheetTrigger>
+              <SheetContent side="right" className="flex flex-col">
+                <nav className="mt-8">
+                  {" "}
+                  <DashboardLinks />
+                </nav>
+              </SheetContent>
             </Sheet>
           </div>
         </header>
