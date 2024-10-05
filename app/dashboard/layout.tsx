@@ -5,7 +5,7 @@ import Image from "next/image";
 import DashboardLinks from "../components/DashboardLinks";
 import {
   Sheet,
-  SheetClose,
+ 
   SheetContent,
   SheetTrigger,
 } from "@/components/ui/sheet";
@@ -30,7 +30,7 @@ export default function DashboardLayout({ children }: { children: ReactNode }) {
         </div>
       </div>
       <div className="">
-        <header className="w-full h-14 bg-gray-100 shadow-md px-8 flex items-center justify-between">
+        <header className="w-full h-14 bg-gray-100 dark:bg-gray-700 shadow-md px-8 flex items-center justify-between">
           <h1>Header Title</h1>
           <div className="">
             <Sheet>
