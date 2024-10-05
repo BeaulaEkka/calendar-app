@@ -6,6 +6,7 @@ import AuthModal from "./AuthModal";
 import SignoutButton from "@/app/components/SignoutButton";
 import { auth } from "@/auth";
 import UserAvatar from "./UserAvatar";
+import { ModeToggle } from "@/components/ui/toggle";
 
 export default async function Navbar() {
   const session = await auth();
@@ -35,6 +36,7 @@ export default async function Navbar() {
           </li>
         </ul>
         <div>
+          <ModeToggle />
           {!session ? (
             <AuthModal />
           ) : (
