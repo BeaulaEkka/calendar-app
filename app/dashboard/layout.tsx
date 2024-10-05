@@ -3,6 +3,9 @@ import React, { ReactNode } from "react";
 import logo from "@/public/images/nextCalendarAppLogo.png";
 import Image from "next/image";
 import DashboardLinks from "../components/DashboardLinks";
+import { Sheet, SheetTrigger } from "@/components/ui/sheet";
+import { Button } from "@/components/ui/button";
+import { Menu } from "lucide-react";
 export default function DashboardLayout({ children }: { children: ReactNode }) {
   return (
     <div className="min-h-screen w-full grid md:grid-cols-[220px_1fr] lg:grid-cols-[280px_1fr]">
@@ -21,7 +24,25 @@ export default function DashboardLayout({ children }: { children: ReactNode }) {
           </div>
         </div>
       </div>
-      <div>{children}</div>
+      <div className="">
+        <header className="w-full h-14 bg-gray-100 shadow-md px-8 flex items-center justify-between">
+          <h1>Header Title</h1>
+          <div className="">
+            <Sheet>
+              <SheetTrigger asChild>
+                <Button
+                  className="md:hidden shrink-0"
+                  size="icon"
+                  variant="outline"
+                >
+                  <Menu className="size-5" />
+                </Button>
+              </SheetTrigger>
+            </Sheet>
+          </div>
+        </header>
+        <main className="p-8">{children}</main>
+      </div>
     </div>
   );
 }

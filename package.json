@@ -11,7 +11,9 @@
   "dependencies": {
     "@auth/prisma-adapter": "^2.5.3",
     "@prisma/client": "^5.20.0",
+    "@prisma/extension-accelerate": "^1.2.1",
     "@radix-ui/react-dialog": "^1.1.2",
+    "@radix-ui/react-dropdown-menu": "^2.1.2",
     "@radix-ui/react-slot": "^1.1.0",
     "calendar-app": "file:",
     "class-variance-authority": "^0.7.0",
@@ -25,7 +27,7 @@
     "tailwindcss-animate": "^1.0.7"
   },
   "devDependencies": {
-    "@types/node": "^20",
+    "@types/node": "^20.16.10",
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "eslint": "^8",
@@ -33,6 +35,15 @@
     "postcss": "^8",
     "prisma": "^5.20.0",
     "tailwindcss": "^3.4.1",
-    "typescript": "^5"
-  }
+    "ts-node": "^10.9.2",
+    "typescript": "^5.6.2"
+  },
+  "description": "This project is a scheduling and booking platform built using Next.js, with authentication powered by Auth.js (Google and GitHub), and calendar integration using Nylas API. The application allows users to manage availability, schedule events, and interact with their calendar.",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
 }
