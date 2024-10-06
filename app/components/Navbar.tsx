@@ -5,14 +5,12 @@ import Logo from "@/public/images/nextCalendarAppLogo.png";
 import AuthModal from "./AuthModal";
 import { auth } from "@/auth";
 import { ModeToggle } from "@/components/ui/toggle";
-import { Button } from "@/components/ui/button";
-import { LifeBuoy, PlusCircle } from "lucide-react";
+
+import { LifeBuoy, LucideGithub, PlusCircle } from "lucide-react";
 import {
   Cloud,
   CreditCard,
-  Keyboard,
   Github,
-  LogOut,
   Mail,
   MessageSquare,
   Plus,
@@ -36,11 +34,13 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import UserAvatar from "./UserAvatar";
+import SignoutButton from "./SignoutButton";
+
 export default async function Navbar() {
   const session = await auth();
 
   return (
-    <div className="w-full h-20  flex bg-gray-800 items-center justify-between px-6 shadow-md">
+    <div className="w-full h-20 flex bg-gray-800 items-center justify-between px-6 shadow-md">
       <div className="w-[80%] mx-auto flex justify-between items-center">
         {/* Logo Section */}
         <div className="flex items-center group hover:cursor-pointer">
@@ -51,7 +51,6 @@ export default async function Navbar() {
             </p>
           </Link>
         </div>
-
         {/* Navigation Links */}
         <ul className="flex space-x-6 text-white">
           <li>
@@ -65,33 +64,10 @@ export default async function Navbar() {
           </li>
         </ul>
         <div>
-          <ModeToggle />
           {!session ? (
             <AuthModal />
           ) : (
             <div className="flex gap-4 items-center justify-center">
-              {/* <DropdownMenu>
-                <DropdownMenuTrigger asChild>
-                  <div>
-                    <UserAvatar />
-                  </div>
-                </DropdownMenuTrigger>
-                <DropdownMenuContent
-                  align="end"
-                  className="bg-white p-4 shadow-md rounded-md"
-                >
-                  <DropdownMenuLabel>My Account</DropdownMenuLabel>
-                  <DropdownMenuSeparator />
-                  <DropdownMenuItem>
-                    <Link href="/dashboard/settings">Settings</Link>
-                  </DropdownMenuItem>
-                  <DropdownMenuSeparator />
-                  <DropdownMenuItem>
-                    <SignoutButton />
-                  </DropdownMenuItem>
-                </DropdownMenuContent>
-              </DropdownMenu> */}
-
               <DropdownMenu>
                 <DropdownMenuTrigger asChild>
                   <div>
@@ -153,30 +129,24 @@ export default async function Navbar() {
                       <DropdownMenuShortcut>⌘+T</DropdownMenuShortcut>
                     </DropdownMenuItem>
                   </DropdownMenuGroup>
+
                   <DropdownMenuSeparator />
-                  <DropdownMenuItem>
-                    <Github className="mr-2 h-4 w-4" />
-                    <span>GitHub</span>
-                  </DropdownMenuItem>
                   <DropdownMenuItem>
                     <LifeBuoy className="mr-2 h-4 w-4" />
                     <span>Support</span>
                   </DropdownMenuItem>
-                  <DropdownMenuItem disabled>
-                    <Cloud className="mr-2 h-4 w-4" />
-                    <span>API</span>
-                  </DropdownMenuItem>
+
                   <DropdownMenuSeparator />
                   <DropdownMenuItem>
-                    <LogOut className="mr-2 h-4 w-4" />
-                    <span>Log out</span>
+                    <SignoutButton />
                     <DropdownMenuShortcut>⇧⌘Q</DropdownMenuShortcut>
                   </DropdownMenuItem>
                 </DropdownMenuContent>
               </DropdownMenu>
             </div>
           )}
-        </div>
+        </div>{" "}
+        <ModeToggle />
       </div>
     </div>
   );
