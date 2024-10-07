@@ -19,7 +19,7 @@ export default async function UserAvatar() {
             className="rounded-full"
           />
         ) : (
-          <p>No avatar available</p>
+          <p className="size-[40px] rounded-full bg-gray-200">{user?.name}</p>
         )}
       </div>
     </div>

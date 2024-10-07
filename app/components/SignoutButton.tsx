@@ -8,10 +8,12 @@ export default function SignoutButton() {
         "use server";
         await signOut();
       }}
-      className="flex"
+      className="flex w-full"
     >
       <LogOut className="mr-2 h-4 w-4" />
-      <button type="submit">Sign Out</button>
+      <button type="submit" className="w-full text-left">
+        Sign Out
+      </button>
     </form>
   );
 }
