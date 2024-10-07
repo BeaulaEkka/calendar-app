@@ -15,7 +15,8 @@ This project is a scheduling and booking platform built using Next.js, with auth
 
 - [x] **Create Dashboard Layout**
   - Design the main dashboard interface for navigating through the application.
-- [ ] **Onboarding Route**
+- [x] **Onboarding Route**
+- [x] Typescript safe validation through Zod **Zod** and **Conform**
 
   - [ ] **Authenticate user using Auth.js** (Google and GitHub).
   - [ ] **Nylas Calendar Integration**: Connect user calendars using Nylas.
