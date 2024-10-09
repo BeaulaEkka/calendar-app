@@ -16,7 +16,12 @@ This project is a scheduling and booking platform built using Next.js, with auth
 - [x] **Create Dashboard Layout**
   - Design the main dashboard interface for navigating through the application.
 - [x] **Onboarding Route**
-- [x] Typescript safe validation through Zod **Zod** and **Conform**
+- [x] Type safe validation through Zod **Zod** and **Conform**
+      **Form Setup**: You're using the useForm hook from @conform-to/react to manage the form state and validation, utilizing the onboardingSchema from zod for validation.
+
+      **UI Structure**: You structured the form within a Card component, with labeled inputs for the user's full name and username.
+      
+      **Validation Feedback**: You're displaying error messages below the inputs when validation fails, which are derived from the form's fields state.
 
   - [ ] **Authenticate user using Auth.js** (Google and GitHub).
   - [ ] **Nylas Calendar Integration**: Connect user calendars using Nylas.

@@ -6,11 +6,9 @@ import AuthModal from "./AuthModal";
 import { auth } from "@/auth";
 import { ModeToggle } from "@/components/ui/toggle";
 
-import { LifeBuoy, LucideGithub, PlusCircle } from "lucide-react";
+import { LifeBuoy, PlusCircle } from "lucide-react";
 import {
-  Cloud,
   CreditCard,
-  Github,
   Mail,
   MessageSquare,
   Plus,
@@ -76,12 +74,22 @@ export default async function Navbar() {
                 </DropdownMenuTrigger>
                 <DropdownMenuContent className="w-56">
                   <DropdownMenuLabel>My Account</DropdownMenuLabel>
+
                   <DropdownMenuSeparator />
                   <DropdownMenuGroup>
                     <DropdownMenuItem>
-                      <User className="mr-2 h-4 w-4" />
-                      <span>Profile</span>
-                      <DropdownMenuShortcut>⇧⌘P</DropdownMenuShortcut>
+                      <Link
+                        href="/profile"
+                        className="flex justify-between border border-red-500"
+                      >
+                        <div className="flex">
+                          <User className="mr-2 h-4 w-4" />
+                          <span>Profile</span>
+                        </div>
+                        <div className="flex flex-end">
+                          <DropdownMenuShortcut>⇧⌘P</DropdownMenuShortcut>
+                        </div>
+                      </Link>
                     </DropdownMenuItem>
                     <DropdownMenuItem>
                       <CreditCard className="mr-2 h-4 w-4" />
