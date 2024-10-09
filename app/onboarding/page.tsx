@@ -18,16 +18,20 @@ import { parseWithZod } from "@conform-to/zod";
 import { onboardingSchema } from "../lib/zodSchemas";
 import { SubmitButton } from "../components/SubmitButtons";
 
-export default function OnboardingRoute() {
+export default function OnboardingPage() {
   const [lastResult, action] = useFormState(OnboardingAction, undefined);
 
   const [form, fields] = useForm({
+    // Sync the result of last submission
     lastResult,
+
+    // Reuse the validation logic on the client
     onValidate({ formData }) {
       return parseWithZod(formData, {
         schema: onboardingSchema,
       });
     },
+    // Validate the form on blur event triggered
     shouldValidate: "onBlur",
     shouldRevalidate: "onInput",
   });
@@ -44,7 +48,7 @@ export default function OnboardingRoute() {
           </CardDescription>
         </CardHeader>
 
-        <form action={action} id="form" onSubmit={form.onSubmit}>
+        <form action={action} id={form.id} onSubmit={form.onSubmit}>
           <CardContent className="flex flex-col gap-y-5">
             {/* fullName */}
             <div className="grid gap-y-2">
@@ -56,9 +60,7 @@ export default function OnboardingRoute() {
                 placeholder="Jane Doe"
               />
               {fields.fullName.errors && (
-                <p className="text-red-500 text-xs">
-                  {fields.fullName.errors}
-                </p>
+                <p className="text-red-500 text-xs">{fields.fullName.errors}</p>
               )}
             </div>{" "}
             {/* userName */}
