@@ -1,5 +1,5 @@
 "use client";
-import { cn } from "@/lib/utils";
+import { cn } from "@/app/lib/utils";
 import { HomeIcon, LucideProps, Settings, User2 } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";

@@ -1,5 +1,4 @@
 "use client";
-
 import {
   Card,
   CardContent,
@@ -12,11 +11,11 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import React from "react";
 import { useFormState } from "react-dom";
-import { OnboardingAction } from "../actions";
 import { useForm } from "@conform-to/react";
 import { parseWithZod } from "@conform-to/zod";
 import { onboardingSchema } from "../lib/zodSchemas";
 import { SubmitButton } from "../components/SubmitButtons";
+import { OnboardingAction } from "../actions";
 
 export default function OnboardingPage() {
   const [lastResult, action] = useFormState(OnboardingAction, undefined);
@@ -48,7 +47,7 @@ export default function OnboardingPage() {
           </CardDescription>
         </CardHeader>
 
-        <form action={action} id={form.id} onSubmit={form.onSubmit}>
+        <form action={action} id={form.id} onSubmit={form.onSubmit} noValidate>
           <CardContent className="flex flex-col gap-y-5">
             {/* fullName */}
             <div className="grid gap-y-2">
@@ -84,7 +83,7 @@ export default function OnboardingPage() {
             </div>
           </CardContent>
           <CardFooter>
-            <SubmitButton text="Submit" />
+            <SubmitButton text="Submit" className="w-full" />
           </CardFooter>
         </form>
       </Card>

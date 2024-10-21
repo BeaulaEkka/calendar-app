@@ -6,7 +6,7 @@ import googlelogo from "@/public/images/googlelogo.svg";
 import githublogo from "@/public/images/githublogo.svg";
 import Image from "next/image";
 import { Loader2, LucideLoader2 } from "lucide-react";
-import { cn } from "@/lib/utils";
+import { cn } from "@/app/lib/utils";
 
 interface iAppProps {
   text: string;
