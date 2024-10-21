@@ -58,7 +58,7 @@ export default function OnboardingPage() {
                 key={fields.fullName.key}
                 placeholder="Jane Doe"
               />
-              {fields.fullName.errors && (
+              {fields.fullName?.errors?.length > 0 && (
                 <p className="text-red-500 text-xs">{fields.fullName.errors}</p>
               )}
             </div>{" "}
